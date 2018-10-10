@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triva Game</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <!-- bootstrap link.  Uncomment if needed for this site --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <!-- jQuery link.  Uncomment if needed for this site -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <div id="container">
+
+    </div>
+
+      
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script>
+
+var queryURL = "https://opentdb.com/api.php?amount=3&category=9&difficulty=medium&type=multiple";
+
+$.ajax({url: queryURL,method: "GET"}).then(function(response) {
+
+     console.log("we are in the ajax function");
+     console.log(response.results)
+     
+
+for (let i = 0; i < response.results.length; i++) {
+     var legend = $("<legend>")
+     legend.text(response.results[i].question)
+
+     var newDiv = $("<div>")
+     var newLabel = $("<label>")
+     var newInput = $('<input type="radio">')
+
+    //  newInput.val(response.results[index].incorrect_answers[0])
+
+    newDiv.append('<input type="radio" class="radio" name="'+i+'">' + response.results[i].incorrect_answers[0] + '<br>')
+
+    legend.append(newDiv)
+      
+    $("#container").append(legend)
+
+    newDiv.append('<input type="radio" class="radio" name="'+i+'">' + response.results[i].incorrect_answers[1] + '</input>')
+
+    legend.append(newDiv)
+      
+    $("#container").append(legend)
+
+    newDiv.append('<input type="radio" class="radio" name="'+i+'">' + response.results[i].incorrect_answers[2] + '</input>')
+
+    legend.append(newDiv)
+  
+    $("#container").append(legend)
+
+    newDiv.append('<input type="radio" class="radio" id="true" name="'+i+'">' + response.results[i].correct_answer + '</input>' +'<br/>')
+
+    legend.append(newDiv)
+
+    $("#container").append(legend)
+
+    var newButton = $('<button type="submit">').append('click here to submit answers');
+
+
+}
+
+
+//   // these following work
+//     console.log(response.results[0].question);    
+//     // var question = $(".first").append($('(response.results[0].question)'));
+//     console.log(response.results[0].correct_answer);
+//     var correctAnswer = (response.results[0].correct_answer);
+//     // console.log(response.results[0].incorrect_answers[0]);
+//     // var wrongAnswer1 = (response.results[0].incorrect_answers[0]);
+//     // console.log(response.results[0].incorrect_answers[1]);
+//     // var wrongAnswer2 = (response.results[0].incorrect_answers[1]);
+//     // console.log(response.results[0].incorrect_answers[2]);
+//     // var wrongAnswer3 = (response.results[0].incorrect_answers[2]);
+
+//   // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
+//     var questionOne = $(".question_1").html(response.results[0].question);
+//    // var correct = $(".answer_1").text(response.results[0].correct_answer);
+//     var incorrect_1 = $(".answer_2").text(response.results[0].incorrect_answers[0]);
+//     var incorrect_2 = $(".answer_3").text(response.results[0].incorrect_answers[1]);
+//     var incorrect_3 = $(".answer_4").text(response.results[0].incorrect_answers[2]);
+//     console.log(correctAnswer)
+//     //test adding new field
+//     // var questionTitle = $("<p>").text("testing addition of new form for question title");
+//            // var firstQuestion = $(".container").append($('<input type="radio">'));
+
+
+//             var firstAnswer = $('<input type="radio" name="radiobtn">'+correctAnswer+'</input>').appendTo('#container');
+
+//         // this one works var questionTitle = $(".container").append($('<input type="radio">'));
+//   // Append the td elements to the new table row
+
+//  // questionNum.append(askQuestion);
+// //   questionNum.append(incorrectOne);
+// //   questionNum.append(incorrectTwo);
+// //   questionNum.append(incorrectThree);
+
+//   // Append the table row to the tbody element
+//   //$("form").append(input);
+
+});
+
+function checkAnswer() {
+    alert("entered check function");
+    var x = document.getElementById("myRadio 3");
+    alert("x now equals ",x);
+
+    if (x = correct){
+        alert("entered if statement for radio button submit click")
+        alert("correct");
+    }
+    else {
+        alert("incorrect");
+    }
+   
+    prompt("ready");
+}
+
+
+
+// <button onclick="check()">Check "Red"</button>
+// <button onclick="uncheck()">Uncheck "Red"</button>
+
+// var x = document.getElementById("#ques1AnsRight").checked;
+
+
+// console.log("right answer chosen");
+
+// https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple
+
+
+
+
+
+
+// var question1 = {
+//     question:"this is question 1?",
+//     answer:"this is the answer to question 1",
+//     wrong1:"this is a wrong answer",
+//     wrong2:"this is a second wrong answer",
+//     wrong3:"this is a third wrong answer",    
+//         }
+
+// console.log(question1);
+
+
+// var score = 0;
+// var userAnswer = document.getElementById(placeholder);
+
+</script>
+
+</body>
+</html>
+
