@@ -1,6 +1,6 @@
 (function() {
 
-  setTimeout(function(){ alert("times up and you loose"); }, 3000);
+  setTimeout(function(){ alert("times up and you loose"); }, 30000);
 
   console.log("in the function")
 
