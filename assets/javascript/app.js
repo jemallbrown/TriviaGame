@@ -1,5 +1,7 @@
 (function() {
 
+  setTimeout(function(){ alert("times up and you loose"); }, 3000);
+
   console.log("in the function")
 
   // i need to create the questions for the quiz
